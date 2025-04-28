@@ -8,4 +8,4 @@ dependencies = [
 
 sources = files('src/bg.vala')
 
-executable('Bar', sources, dependencies: dependencies)
+executable('Bar_bg', sources, dependencies: dependencies)
