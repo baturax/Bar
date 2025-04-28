@@ -6,6 +6,6 @@ dependencies = [
   dependency('gtk4-layer-shell-0'),
 ]
 
-sources = files('src/bai.vala')
+sources = files('src/bg.vala')
 
 executable('Bar', sources, dependencies: dependencies)
