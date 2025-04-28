@@ -5,3 +5,4 @@ meson compile
 ```
 
 Binary will be inside builddir
+
