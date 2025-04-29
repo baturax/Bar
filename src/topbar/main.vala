@@ -31,6 +31,10 @@ class MyBar_Top : Gtk.Application {
             column_spacing = 1,
             row_spacing = 6,
         };
+        
+            //  Boxs
+        var app_and_icon_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 4);
+        var right_boxes = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 3);
             
             // Workspace Buttons
         var ws1 = workspaces.ws1(top_window);
@@ -42,14 +46,17 @@ class MyBar_Top : Gtk.Application {
         
             //  Clock
         var time_label = new Gtk.Label("");
-        time_label.set_halign(Gtk.Align.START);
+        time_label.set_halign(Gtk.Align.END);
         time_label.set_valign(Gtk.Align.CENTER);
         show_time(time_label);
         
             //  Opened App
         var opened_app = new Gtk.Label("");
-        opened_app.set_selectable(true);
         var opened_app_b = what_app_is_open(opened_app);
+        var app_icon = new Gtk.Image.from_icon_name(null);
+        var app_icon_b = what_app_icon(app_icon);
+        app_and_icon_box.append(opened_app_b);
+        app_and_icon_box.append(app_icon_b);
         
             //  Shell
         ws_grid.attach(ws1, 0, 0, 1, 1);
@@ -58,8 +65,8 @@ class MyBar_Top : Gtk.Application {
         ws_grid.attach_next_to(ws4, ws3, Gtk.PositionType.RIGHT, 1, 1);
         ws_grid.attach_next_to(ws5, ws4, Gtk.PositionType.RIGHT, 1, 1);
         ws_grid.attach_next_to(ws6, ws5, Gtk.PositionType.RIGHT, 1, 1);
-        ws_grid.attach_next_to(time_label, ws6, Gtk.PositionType.RIGHT, 1, 1);
-        ws_grid.attach_next_to(opened_app_b, time_label, Gtk.PositionType.RIGHT, 1, 1);
+        ws_grid.attach_next_to(app_and_icon_box, ws6, Gtk.PositionType.RIGHT, 1, 1);
+        ws_grid.attach_next_to(time_label, app_and_icon_box, Gtk.PositionType.RIGHT, 1, 1);
         
         top_window.child = ws_grid;
         top_window.present();
