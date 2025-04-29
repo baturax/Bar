@@ -3,15 +3,13 @@
 using Gtk;
 using GtkLayerShell;
 
-const string bg = "/home/arch/Pictures/Wallpaper/arch.jpg";
 
 class MyBar_bg : Gtk.Application {
     public MyBar_bg() {
-        Object(application_id: "bai.bai.Bar.Background");
+        Object(application_id: "Values.APP_ID");
     }
 
     protected override void activate() {
-
             // Main App
         var background_window = new Gtk.ApplicationWindow(this) {
             title = "31",
@@ -24,7 +22,7 @@ class MyBar_bg : Gtk.Application {
         GtkLayerShell.set_layer(background_window, GtkLayerShell.Layer.BACKGROUND);
         
             //  Wallpaper
-        var bg_image = new Gtk.Image.from_file(bg);
+        var bg_image = new Gtk.Image.from_file(Values.BG_IMAGE);
         bg_image.set_pixel_size(1920);
         
         background_window.child = bg_image;

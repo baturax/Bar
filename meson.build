@@ -6,7 +6,7 @@ dependencies = [
   dependency('gtk4-layer-shell-0'),
 ]
 
-bg_source = files('src/bg.vala')
+bg_source = files('src/background/main.vala', 'src/background/values.vala')
 top_source = files('src/topbar.vala')
 
 executable('Bar_bg', bg_source, dependencies: dependencies)
