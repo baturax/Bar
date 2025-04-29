@@ -53,28 +53,28 @@ class workspaces {
         return ws6;
     }
     
-    public static Gtk.Button ws7(Gtk.ApplicationWindow top_window) {
-        var ws7 = new Gtk.Button.with_label("7");
-        ws7.clicked.connect(() => {
-            to_workspace("7", top_window);
-        });
-        return ws7;
-    }
+    // public static Gtk.Button ws7(Gtk.ApplicationWindow top_window) {
+    //     var ws7 = new Gtk.Button.with_label("7");
+    //     ws7.clicked.connect(() => {
+    //         to_workspace("7", top_window);
+    //     });
+    //     return ws7;
+    // }
     
-    public static Gtk.Button ws8(Gtk.ApplicationWindow top_window) {
-        var ws8 = new Gtk.Button.with_label("8");
-        ws8.clicked.connect(() => {
-            to_workspace("8", top_window);
-        });
-        return ws8;
-    }
+    // public static Gtk.Button ws8(Gtk.ApplicationWindow top_window) {
+    //     var ws8 = new Gtk.Button.with_label("8");
+    //     ws8.clicked.connect(() => {
+    //         to_workspace("8", top_window);
+    //     });
+    //     return ws8;
+    // }
     
-    public static Gtk.Button ws9(Gtk.ApplicationWindow top_window) {
-        var ws9 = new Gtk.Button.with_label("9");
-        ws9.clicked.connect(() => {
-            to_workspace("9", top_window);
-        });
-        return ws9;
-    }
+    // public static Gtk.Button ws9(Gtk.ApplicationWindow top_window) {
+    //     var ws9 = new Gtk.Button.with_label("9");
+    //     ws9.clicked.connect(() => {
+    //         to_workspace("9", top_window);
+    //     });
+    //     return ws9;
+    // }
     
 }
