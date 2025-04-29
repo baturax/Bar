@@ -68,6 +68,16 @@ class MyBar_Top : Gtk.Application {
             to_workspace("6", top_window);
         });
         
+            //  Clock
+        var time_label = new Gtk.Label("");
+        time_label.set_halign(Gtk.Align.START);
+        time_label.set_valign(Gtk.Align.CENTER);
+        show_time(time_label);
+        
+            //  Opened App
+        var opened_app = new Gtk.Label("");
+        what_app_is_open(opened_app);
+        
             //  Shell
         ws_grid.attach(ws1, 0, 0, 1, 1);
         ws_grid.attach_next_to(ws2, ws1, Gtk.PositionType.RIGHT, 1, 1);
@@ -75,10 +85,14 @@ class MyBar_Top : Gtk.Application {
         ws_grid.attach_next_to(ws4, ws3, Gtk.PositionType.RIGHT, 1, 1);
         ws_grid.attach_next_to(ws5, ws4, Gtk.PositionType.RIGHT, 1, 1);
         ws_grid.attach_next_to(ws6, ws5, Gtk.PositionType.RIGHT, 1, 1);
+        ws_grid.attach_next_to(time_label, ws6, Gtk.PositionType.RIGHT, 1, 1);
+        ws_grid.attach_next_to(opened_app, time_label, Gtk.PositionType.RIGHT, 1, 1);
+        
         top_window.child = ws_grid;
         top_window.present();
     }
     
+        // Methods
     public static int main(string[] args) {
         return new MyBar_Top().run(args);
     }
@@ -90,6 +104,25 @@ class MyBar_Top : Gtk.Application {
         } catch (SpawnError e) {
             var dialog = new Gtk.AlertDialog("MAKE SURE YOU'RE USİNG' HYPRLAND");
             dialog.show(parent);
+        }
+    }
+    public static void show_time(Label clock) {
+        var i = new GLib.DateTime.now_local();
+        clock.set_label(i.format("%H.%M")+" 🕙");
+        GLib.Timeout.add_seconds(60, () => {
+            var c_time = new GLib.DateTime.now_local();
+            clock.set_label(c_time.format("%H.%M.%S"));
+            return true;
+        });
+    }
+    public static void what_app_is_open(Label app_label) {
+        try {
+        var command = "/bin/sh -c 'hyprctl activewindow | grep class: | sed \"s/class: //\"'";
+            string stdout;
+            GLib.Process.spawn_command_line_sync(command, out stdout, null, null);
+            app_label.set_text(" "+stdout.strip());
+        } catch(SpawnError e) {
+            app_label.set_text("");
         }
     }
 }
