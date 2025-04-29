@@ -5,9 +5,9 @@ using GtkLayerShell;
 
 const string bg = "/home/arch/Pictures/Wallpaper/arch.jpg";
 
-class MyBar : Gtk.Application {
-    public MyBar() {
-        Object(application_id: "bai.bai.Bar");
+class MyBar_bg : Gtk.Application {
+    public MyBar_bg() {
+        Object(application_id: "bai.bai.Bar.Background");
     }
 
     protected override void activate() {
@@ -31,7 +31,7 @@ class MyBar : Gtk.Application {
         background_window.present();
     }
     public static int main(string[] args) {
-        return new MyBar().run(args);
+        return new MyBar_bg().run(args);
     }
 }
 
