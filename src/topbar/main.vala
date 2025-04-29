@@ -26,47 +26,19 @@ class MyBar_Top : Gtk.Application {
         GtkLayerShell.auto_exclusive_zone_enable(top_window);
         GtkLayerShell.set_keyboard_mode(top_window, GtkLayerShell.KeyboardMode.ON_DEMAND);
         
-            //  workspaces grid
+            //  Workspaces grid
         var ws_grid = new Gtk.Grid() {
             column_spacing = 1,
             row_spacing = 6,
         };
             
-            // Workspace Button1
-        var ws1 = new Gtk.Button.with_label("1");
-        ws1.clicked.connect(() => {
-            to_workspace("1", top_window);
-        });
-        
-        // Workspace Button2
-        var ws2 = new Gtk.Button.with_label("2");
-        ws2.clicked.connect(() => {
-            to_workspace("2", top_window);
-        });
-        
-        // Workspace Button3
-        var ws3 = new Gtk.Button.with_label("3");
-        ws3.clicked.connect(() => {
-            to_workspace("3", top_window);
-        });
-        
-        // Workspace Button4
-        var ws4 = new Gtk.Button.with_label("4");
-        ws4.clicked.connect(() => {
-            to_workspace("4", top_window);
-        });
-        
-        // Workspace Button5
-        var ws5 = new Gtk.Button.with_label("5");
-        ws5.clicked.connect(() => {
-            to_workspace("5", top_window);
-        });
-        
-        // Workspace Button6
-        var ws6 = new Gtk.Button.with_label("6");
-        ws6.clicked.connect(() => {
-            to_workspace("6", top_window);
-        });
+            // Workspace Buttons
+        var ws1 = workspaces.ws1(top_window);
+        var ws2 = workspaces.ws2(top_window);
+        var ws3 = workspaces.ws3(top_window);
+        var ws4 = workspaces.ws4(top_window);
+        var ws5 = workspaces.ws5(top_window);
+        var ws6 = workspaces.ws6(top_window);
         
             //  Clock
         var time_label = new Gtk.Label("");
