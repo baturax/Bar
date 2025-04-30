@@ -1,5 +1,5 @@
 #### preview
-[31](https://github.com/baturax/linux-bar/raw/refs/heads/main/assets/2025-04-30%2003-46-55.mp4)
+[](https://github.com/baturax/linux-bar/raw/refs/heads/main/assets/2025-04-30%2003-46-55.mp4)
 
 ```sh
 meson setup builddir
