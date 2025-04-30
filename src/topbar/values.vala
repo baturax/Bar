@@ -8,7 +8,7 @@ namespace Values {
         //  to_workspace.vala
     public const string WORKSPACE_CHANGE = "niri msg action focus-workspace ";
     public const string WORKSPACE_CHANGE_NOTIFICATION = "notify-send --app-name='System' --urgency 'low' --expire-time=2000 -e 'Switched to Workspace' ";
-    public const string NOTIFICATION_ERROR = "Use Hyprland bruh";
+    public const string NOTIFICATION_ERROR = "Did You forget to fix here?";
     
         //  what_app_is_open.vala
     public const string GET_OPEN_APP_OF_HYPRLAND = "/bin/sh -c 'hyprctl activewindow | grep class: | sed \"s/class: //\"'";
