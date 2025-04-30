@@ -24,7 +24,7 @@ class MyBar_Top : Gtk.Application {
         GtkLayerShell.is_layer_window(top_window);
         GtkLayerShell.set_anchor(top_window, GtkLayerShell.Edge.TOP, true);
         GtkLayerShell.auto_exclusive_zone_enable(top_window);
-        GtkLayerShell.set_keyboard_mode(top_window, GtkLayerShell.KeyboardMode.ON_DEMAND);
+        GtkLayerShell.set_keyboard_mode(top_window, GtkLayerShell.KeyboardMode.NONE);
         
             //  Boxs
         var a_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 5);
@@ -33,6 +33,7 @@ class MyBar_Top : Gtk.Application {
         var r_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 1);
             
             // Left Box
+        l_box.set_valign(Gtk.Align.CENTER);
             // Workspaces
         l_box.append(workspaces.ws1(top_window));
         l_box.append(workspaces.ws2(top_window));
@@ -40,10 +41,11 @@ class MyBar_Top : Gtk.Application {
         l_box.append(workspaces.ws4(top_window));
         l_box.append(workspaces.ws5(top_window));
         l_box.append(workspaces.ws6(top_window));
-        a_box.append(l_box);
-        //  Opened App
+            //  Opened App
         l_box.append(what_app_is_open());
         l_box.append(what_app_icon());
+        
+        a_box.append(l_box);
         
             //  Clock
         var time_label = new Gtk.Label("");

@@ -3,6 +3,7 @@ using GLib;
 
 public static Label what_app_is_open() {
     var app_label = new Gtk.Label("");
+    app_label.set_valign(Gtk.Align.CENTER);
     GLib.Timeout.add_seconds(2, () => {
         string stdout;
         try {

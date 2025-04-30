@@ -3,7 +3,7 @@ using GLib;
 
 public static Image what_app_icon() {
     var app_icon = new Gtk.Image.from_icon_name("");
-    app_icon.set_valign(Gtk.Align.BASELINE);
+    app_icon.set_valign(Gtk.Align.CENTER);
     GLib.Timeout.add_seconds(2, () => {
         string stdout;
         try {
