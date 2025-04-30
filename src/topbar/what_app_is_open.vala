@@ -1,7 +1,8 @@
 using Gtk;
 using GLib;
 
-public static Label what_app_is_open(Label app_label) {
+public static Label what_app_is_open() {
+    var app_label = new Gtk.Label("");
     GLib.Timeout.add_seconds(2, () => {
         string stdout;
         try {

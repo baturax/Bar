@@ -1,7 +1,9 @@
 using Gtk;
 using GLib;
 
-public static Image what_app_icon(Image app_icon) {
+public static Image what_app_icon() {
+    var app_icon = new Gtk.Image.from_icon_name("");
+    app_icon.set_valign(Gtk.Align.BASELINE);
     GLib.Timeout.add_seconds(2, () => {
         string stdout;
         try {

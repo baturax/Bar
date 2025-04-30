@@ -32,7 +32,8 @@ class MyBar_Top : Gtk.Application {
         var c_box =  new Gtk.Box(Gtk.Orientation.HORIZONTAL, 1);
         var r_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 1);
             
-            // Workspace Buttons
+            // Left Box
+            // Workspaces
         l_box.append(workspaces.ws1(top_window));
         l_box.append(workspaces.ws2(top_window));
         l_box.append(workspaces.ws3(top_window));
@@ -40,16 +41,13 @@ class MyBar_Top : Gtk.Application {
         l_box.append(workspaces.ws5(top_window));
         l_box.append(workspaces.ws6(top_window));
         a_box.append(l_box);
+        //  Opened App
+        l_box.append(what_app_is_open());
+        l_box.append(what_app_icon());
         
             //  Clock
         var time_label = new Gtk.Label("");
         show_time(time_label);
-        
-            //  Opened App
-        var opened_app_label = new Gtk.Label("");
-        opened_app_label = what_app_is_open(opened_app_label);
-        var app_icon = new Gtk.Image.from_icon_name(null);
-        app_icon = what_app_icon(app_icon);
         
             //  Battery Capacity
         var battery_label = new Gtk.Label("");
