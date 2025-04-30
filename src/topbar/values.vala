@@ -12,4 +12,8 @@ namespace Values {
     
         //  what_app_is_open.vala
     public const string GET_OPEN_APP = "/bin/sh -c 'hyprctl activewindow | grep class: | sed \"s/class: //\"'";
+    
+        //  battery.vala
+    public const string BATTERY_CAPACITY_FILE = "/sys/class/power_supply/BAT0/capacity";
+    public const string BATTERY_STATUS_FILE = "/sys/class/power_supply/BAT0/status";
 }
