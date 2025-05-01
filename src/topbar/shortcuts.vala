@@ -4,29 +4,26 @@ using GLib;
 class shortcuts{
 
     public static Button file_manager() {
-        var f_m_b = new Gtk.Button.from_icon_name("system-file-manager");
-        f_m_b.clicked.connect(() => {
-            run_app(Values.FILE_MANAGER);
-        });
-        return f_m_b;
+        return apps(Values.FILE_MANAGER, Values.FILE_MANAGER_ICON_NAME);
     }
     
     public static Button terminal() {
-        var f_m_b = new Gtk.Button.from_icon_name("utilities-terminal");
-        f_m_b.clicked.connect(() => {
-            run_app(Values.TERMINAL);
-        });
-        return f_m_b;
+        return apps(Values.TERMINAL, Values.TERMINAL_ICON_NAME);
     }
     
     public static Button browser() {
-        var f_m_b = new Gtk.Button.from_icon_name("applications-internet");
-        f_m_b.clicked.connect(() => {
-            run_app(Values.BROWSER);
-        });
-        return f_m_b;
+        return apps(Values.BROWSER, Values.BROWSER_ICON_NAME);
     }
 
+}
+
+
+public static Button apps(string app_name, string button_icon_name) {
+    var app_button = new Gtk.Button.from_icon_name(button_icon_name);
+    app_button.clicked.connect(() =>{
+        run_app(app_name);
+    });
+    return app_button;
 }
 
 public static void run_app(string app_name) {
@@ -37,3 +34,4 @@ public static void run_app(string app_name) {
         dialog.show(null);
     }
 }
+
