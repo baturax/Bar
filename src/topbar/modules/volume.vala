@@ -13,7 +13,7 @@ public static Label get_volume() {
         } catch (SpawnError e){
             volume_label.set_label("Couldnt get sorry");
         }
-    return true;
+        return true;
     });
     return volume_label;
 }
