@@ -8,9 +8,9 @@ public static Label get_battery() {
     string stdout;
     try {
         FileUtils.get_contents(Values.BATTERY_CAPACITY_FILE, out stdout);
-        battery.set_label(stdout.strip());
+        battery.set_label("%"+stdout.strip()+" 󰠏");
     } catch (FileError e) {
-        battery.set_label("nnnnnigga");
+        battery.set_label("couldnt find battery, maybe change values?");
     }
     return true;
     });
