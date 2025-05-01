@@ -10,7 +10,7 @@ public static Label get_battery_status() {
             FileUtils.get_contents(Values.BATTERY_STATUS_FILE, out stdout);
             battery_capacity.set_label(stdout.strip());
         } catch (FileError e) {
-            battery_capacity.set_label("nnnnnigga");
+            battery_capacity.set_label("Forgot to change value?");
         }
         return true;
     });
