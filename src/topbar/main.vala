@@ -30,7 +30,16 @@ class MyBar_Top : Gtk.Application {
         var a_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 5);
         var l_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 2);
         var c_box =  new Gtk.Box(Gtk.Orientation.HORIZONTAL, 1);
-        var r_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 1);
+        var r_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 10);
+        
+            //  Extra boxes
+            // 
+        
+            //  Expanders
+        var spacer_left = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
+        spacer_left.hexpand = true;
+        var spacer_right = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
+        spacer_right.hexpand = true;
             
             // Left Box
         l_box.set_valign(Gtk.Align.CENTER);
@@ -47,19 +56,21 @@ class MyBar_Top : Gtk.Application {
         
             //  Center Box
         c_box.set_valign(Gtk.Align.CENTER);
-        c_box.set_hexpand(true);
-            //  Battery
-        c_box.append(get_battery_capacity());
+        
         
             //  Right Box
         r_box.set_valign(Gtk.Align.CENTER);
+            //  Battery status
+        r_box.append(get_battery_status());
+        r_box.append(get_battery());
             //  Clock
         r_box.append(show_time());
     
 
         a_box.append(l_box);
+        a_box.append(spacer_left);
         a_box.append(c_box);
-        
+        a_box.append(spacer_right);
         a_box.append(r_box);
         
         top_window.child = a_box;
