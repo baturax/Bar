@@ -33,7 +33,7 @@ class MyBar_Top : Gtk.Application {
         var r_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 10);
         
             //  Extra boxes
-            // 
+        var shortcuts_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 10);
         
             //  Expanders
         var spacer_left = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
@@ -54,9 +54,14 @@ class MyBar_Top : Gtk.Application {
         l_box.append(what_app_is_open());
         l_box.append(what_app_icon());
         
+            //  Shortcuts
+        shortcuts_box.append(shortcuts.file_manager());
+        shortcuts_box.append(shortcuts.terminal());
+        shortcuts_box.append(shortcuts.browser());
+            
             //  Center Box
         c_box.set_valign(Gtk.Align.CENTER);
-        
+        c_box.append(shortcuts_box);
         
             //  Right Box
         r_box.set_valign(Gtk.Align.CENTER);

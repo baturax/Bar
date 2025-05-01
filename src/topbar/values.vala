@@ -18,4 +18,9 @@ namespace Values {
         //  battery.vala
     public const string BATTERY_CAPACITY_FILE = "/sys/class/power_supply/BAT0/capacity";
     public const string BATTERY_STATUS_FILE = "/sys/class/power_supply/BAT0/status";
+    
+        //  Shorcuts
+    public const string FILE_MANAGER = "nautilus";
+    public const string TERMINAL = "kitty";
+    public const string BROWSER = "firefox";
 }
