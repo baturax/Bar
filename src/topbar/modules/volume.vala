@@ -7,9 +7,9 @@ public static Label get_volume() {
     
     GLib.Timeout.add_seconds(2, () => {
         try {
-            string stdout;
-            GLib.Process.spawn_command_line_sync(Values.GET_VOLUME, out stdout);
-            volume_label.set_label(stdout.strip()+" 󰜟");
+            string output_;
+            GLib.Process.spawn_command_line_sync(Values.GET_VOLUME, out output_);
+            volume_label.set_label(output_.strip()+" 󰜟");
         } catch (SpawnError e){
             volume_label.set_label("Couldnt get sorry");
         }
