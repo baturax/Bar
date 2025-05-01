@@ -66,6 +66,9 @@ class MyBar_Top : Gtk.Application {
         
             //  Right Box
         r_box.set_valign(Gtk.Align.CENTER);
+            //  Volume
+        r_box.append(get_volume());
+        r_box.append(sep);
             //  Battery status
         r_box.append(get_battery_status());
         r_box.append(get_battery());

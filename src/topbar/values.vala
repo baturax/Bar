@@ -27,4 +27,7 @@ namespace Values {
     public const string FILE_MANAGER = "nautilus";
     public const string TERMINAL = "kitty";
     public const string BROWSER = "firefox";
+    
+        //  Volume
+    public const string GET_VOLUME = "sh -c \"wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print \\$2, $3}'\"";
 }
