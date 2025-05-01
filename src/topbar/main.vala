@@ -45,15 +45,22 @@ class MyBar_Top : Gtk.Application {
         l_box.append(what_app_is_open());
         l_box.append(what_app_icon());
         
-        a_box.append(l_box);
+            //  Center Box
+        c_box.set_valign(Gtk.Align.CENTER);
+        c_box.set_hexpand(true);
+            //  Battery
+        c_box.append(get_battery_capacity());
         
+            //  Right Box
+        r_box.set_valign(Gtk.Align.CENTER);
             //  Clock
-        var time_label = new Gtk.Label("");
-        show_time(time_label);
+        r_box.append(show_time());
+    
+
+        a_box.append(l_box);
+        a_box.append(c_box);
         
-            //  Battery Capacity
-        var battery_label = new Gtk.Label("");
-        battery_label = get_battery_capacity(battery_label);
+        a_box.append(r_box);
         
         top_window.child = a_box;
         top_window.present();
@@ -63,7 +70,5 @@ class MyBar_Top : Gtk.Application {
     public static int main(string[] args) {
         return new MyBar_Top().run(args);
     }
-
-    
-    
+   
 }

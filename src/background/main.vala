@@ -3,28 +3,27 @@
 using Gtk;
 using GtkLayerShell;
 
-
 class MyBar_bg : Gtk.Application {
     public MyBar_bg() {
         Object(application_id: "Values.APP_ID");
     }
-
     protected override void activate() {
             // Main App
         var background_window = new Gtk.ApplicationWindow(this) {
             title = "31",
-            default_height = 1080,
-            default_width = 1920,
+            default_height = 200,
+            default_width = 200,
         };
 
             //  Shell
         GtkLayerShell.init_for_window(background_window);
         GtkLayerShell.set_layer(background_window, GtkLayerShell.Layer.BACKGROUND);
-        
+        GtkLayerShell.set_anchor(background_window, GtkLayerShell.Edge.BOTTOM, true);
+
             //  Wallpaper
         var bg_image = new Gtk.Image.from_file(Values.BG_IMAGE);
         bg_image.set_pixel_size(1920);
-        
+
         background_window.child = bg_image;
         background_window.present();
     }
@@ -32,4 +31,3 @@ class MyBar_bg : Gtk.Application {
         return new MyBar_bg().run(args);
     }
 }
-
