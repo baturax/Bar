@@ -32,8 +32,9 @@ class MyBar_Top : Gtk.Application {
         var c_box =  new Gtk.Box(Gtk.Orientation.HORIZONTAL, 1);
         var r_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 10);
         
-            //  Extra boxes
+            //  Extra things
         var shortcuts_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 10);
+        var sep = new Gtk.Label("");
         
             //  Expanders
         var spacer_left = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
@@ -68,6 +69,7 @@ class MyBar_Top : Gtk.Application {
             //  Battery status
         r_box.append(get_battery_status());
         r_box.append(get_battery());
+        r_box.append(sep);
             //  Clock
         r_box.append(show_time());
     
