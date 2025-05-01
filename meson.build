@@ -9,5 +9,5 @@ dependencies = [
 bg_source = files('src/background/main.vala', 'src/background/values.vala')
 top_source = files('src/topbar/main.vala', 'src/topbar/to_workspace.vala', 'src/topbar/show_time.vala', 'src/topbar/what_app_is_open.vala', 'src/topbar/workspaces.vala', 'src/topbar/values.vala', 'src/topbar/what_app_icon.vala', 'src/topbar/get_battery_status.vala', 'src/topbar/get_battery.vala', 'src/topbar/shortcuts.vala')
 
-executable('Bar_bg', bg_source, dependencies: dependencies)
+#executable('Bar_bg', bg_source, dependencies: dependencies)
 executable('Bar_top', top_source, dependencies: dependencies)
