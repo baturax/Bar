@@ -1,8 +1,6 @@
 using Gtk;
 using GLib;
 
-
-
 class workspaces {
 
     public static Gtk.Button ws1(Gtk.ApplicationWindow top_window) {
