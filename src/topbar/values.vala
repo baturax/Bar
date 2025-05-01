@@ -6,8 +6,12 @@ namespace Values {
     public const string CLOCK_FORMAT = "%H.%M.%S";
     
         //  to_workspace.vala
-    public const string WORKSPACE_CHANGE = "niri msg action focus-workspace ";
-    public const string WORKSPACE_CHANGE_NOTIFICATION = "notify-send --app-name='System' --urgency 'low' --expire-time=2000 -e 'Switched to Workspace' ";
+    public const string WORKSPACE_CHANGE_HYPRLAND = "hyprctl dispatch workspace ";
+    public const string WORKSPACE_CHANGE_NIRI = "niri msg action focus-workspace ";
+    public const string WORKSPACE_CHANGE = WORKSPACE_CHANGE_NIRI;
+    public const string WORKSPACE_CHANGE_NOTIFICATION_GLOBAL = "notify-send --app-name='System' --urgency 'low' --expire-time=2000 -e 'Switched to Workspace' ";
+    public const string WORKSPACE_CHANGE_NOTIFICATION_HYPRLAND = "hyprctl notify 5 5000 0 Switched to Workspace ";
+    public const string WORKSPACE_CHANGE_NOTIFICATION = WORKSPACE_CHANGE_NOTIFICATION_GLOBAL;
     public const string NOTIFICATION_ERROR = "Did You forget to fix here?";
     
         //  what_app_is_open.vala
