@@ -13,5 +13,6 @@ meson compile
 Binary will be inside builddir
 
 ## Features
-Change what you need in modules/values.vala
-Supports Niri & Hyprland //// Default Niri
+###Change what you need in modules/values.vala
+
+###Supports Niri & Hyprland //// Default Niri
