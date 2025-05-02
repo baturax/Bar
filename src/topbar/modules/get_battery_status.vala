@@ -10,10 +10,12 @@ public static Label get_battery_status() {
             FileUtils.get_contents(Values.BATTERY_STATUS_FILE, out output_);
             output_ = output_.strip();
             
-            if (output_.contains("Charging")) {
+            if (output_.contains("Char")) {
                 battery_capacity.set_label("󰚥 " + output_);
             } else if (output_.contains("Disc")) {
                 battery_capacity.set_label("󰚦 " + output_);
+            } else if (output_.contains("Full")) {
+                battery_capacity.set_label("󱊦 " + output_);
             } else {
                 battery_capacity.set_label("󰂑");
             }
