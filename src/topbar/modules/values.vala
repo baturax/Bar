@@ -3,7 +3,7 @@ namespace Values {
     public const string APP_ID          =         "bai.bai.Bar.Top";
     
         //  show_time.vala
-    public const string CLOCK_FORMAT    =         "%H.%M.%S";
+    public const string CLOCK_FORMAT    =         "%H.%M";
     
         //  to_workspace.vala
     public const string WORKSPACE_CHANGE_HYPRLAND                   =      "hyprctl dispatch workspace ";
