@@ -36,5 +36,3 @@ internal class a_shortcuts {
     }
 
 }
-
-
