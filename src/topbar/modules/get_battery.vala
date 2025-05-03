@@ -14,8 +14,8 @@ public static Label get_battery() {
         try {
         if (FileUtils.get_contents(Values.BATTERY_CAPACITY_FILE, out output_)) {
             output_ = output_.strip();
-            int output_as_int = int.parse(output_);
-            int index = (output_as_int * (battery_icon.length - 1)) / 100;
+            uint output_as_int = uint.parse(output_);
+            uint index = (output_as_int * (battery_icon.length - 1)) / 100;
             battery.set_label(battery_icon[index]+output_);
         
         }
