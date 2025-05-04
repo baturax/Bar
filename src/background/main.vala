@@ -22,8 +22,10 @@ public class Bar_bg : Gtk.Application {
 
       var bg_picture = new Gtk.Picture.for_filename(Values.BG_IMAGE);
 
+      var overlay = new Gtk.Overlay();
+      overlay.set_child(bg_picture);
 
-      window.child = bg_picture;
+      window.child = overlay;
       window.present();
    }
 
