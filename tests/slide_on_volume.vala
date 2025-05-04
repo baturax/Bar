@@ -31,6 +31,12 @@ public class TestIT: Gtk.Application {
            muteIT();
         });
 
+        var b = new Gtk.GestureClick();
+        b.set_button(Gdk.BUTTON_SECONDARY);
+        b.pressed.connect((n_press,x,y) => {
+            app();
+        });
+
         var scr = new Gtk.EventControllerScroll(Gtk.EventControllerScrollFlags.VERTICAL);
         scr.scroll.connect((dx,dy) => {
            if (dy <0) {
@@ -46,6 +52,7 @@ public class TestIT: Gtk.Application {
         vol_l.set_has_tooltip(true);
         vol_l.set_tooltip_text("al");
         vol_l.add_controller(a);
+        vol_l.add_controller(b);
 
         win.child = hbox;
         win.present();
@@ -54,6 +61,16 @@ public class TestIT: Gtk.Application {
     public static int main(string[] args) {
         return new TestIT().run(args);
     }
+}
+
+public static void app() {
+   var com = "pavucontrol";
+   try {
+      string a;
+      GLib.Process.spawn_command_line_sync(com, out a);
+   } catch (SpawnError e) {
+      
+   }
 }
 
 public static void decvol() {
