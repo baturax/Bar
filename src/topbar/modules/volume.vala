@@ -82,7 +82,7 @@ internal class VolumeControls {
    public static void volume_app()
    {
       try {
-         GLib.Process.spawn_command_line_sync(Values.VOLUME_APP);
+         GLib.Process.spawn_command_line_async(Values.VOLUME_APP);
       } catch (SpawnError e) {
       }
    }
