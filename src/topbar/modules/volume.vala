@@ -12,10 +12,12 @@ class GetVolume {
       var left_click = new Gtk.GestureClick();
       var right_click = new Gtk.GestureClick();
       var middle_click = new Gtk.GestureClick();
+      var scroll = new Gtk.EventControllerScroll(Gtk.EventControllerScrollFlags.VERTICAL);
 
       left_click.set_button(Gdk.BUTTON_PRIMARY);
       right_click.set_button(Gdk.BUTTON_SECONDARY);
       middle_click.set_button(Gdk.BUTTON_MIDDLE);
+
 
       left_click.pressed.connect((n_press, x, y) => {
          VolumeControls.toggle_mute_volume();
@@ -29,9 +31,19 @@ class GetVolume {
          //TODO
       });
 
+      scroll.scroll.connect((dx, dy) => {
+         if (dy > 0) {
+            VolumeControls.increase_volume();
+         } else if (dy < 0) {
+            VolumeControls.decrease_volume();
+         }
+         return true;
+      });
+
       volume_label.add_controller(left_click);
       volume_label.add_controller(right_click);
       volume_label.add_controller(middle_click);
+      volume_label.add_controller(scroll);
 
       GLib.Timeout.add_seconds(2, () => {
          try {
