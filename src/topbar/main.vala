@@ -1,5 +1,3 @@
-// ! Topbar
-
 using Gtk;
 using GtkLayerShell;
 using GLib;
@@ -54,7 +52,7 @@ class MyBar_Top : Gtk.Application {
         l_box.append(workspaces.ws6(top_window));
             //  Opened App
         l_box.append(what_app_is_open());
-        l_box.append(what_app_icon());
+        l_box.append(WhatAppIcon.what_app_icon());
         
             //  Shortcuts
         shortcuts_box.append(shortcuts.file_manager());
@@ -68,14 +66,14 @@ class MyBar_Top : Gtk.Application {
             //  Right Box
         r_box.set_valign(Gtk.Align.CENTER);
             //  Volume
-        r_box.append(get_volume());
+        r_box.append(GetVolume.get_volume());
         r_box.append(sep0);
             //  Battery status
-        r_box.append(get_battery_status());
-        r_box.append(get_battery());
+        r_box.append(GetBatteryStatus.get_battery_status());
+        r_box.append(GetBattery.get_battery());
         r_box.append(sep1);
             //  Clock
-        r_box.append(show_time());
+        r_box.append(ShowTime.show_time());
     
 
         a_box.append(l_box);
