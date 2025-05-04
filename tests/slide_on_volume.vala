@@ -28,11 +28,24 @@ public class TestIT: Gtk.Application {
         var a = new Gtk.GestureClick();
         a.set_button(0);
         a.pressed.connect((n_press,x,y) => {
-           print("nigga");
+           muteIT();
         });
+
+        var scr = new Gtk.EventControllerScroll(Gtk.EventControllerScrollFlags.VERTICAL);
+        scr.scroll.connect((dx,dy) => {
+           if (dy <0) {
+               decvol();
+           } else if (dy >0) {
+               incVol();
+           }
+           return true;
+        });
+
+        vol_l.add_controller(scr);
 
         vol_l.set_has_tooltip(true);
         vol_l.set_tooltip_text("al");
+        vol_l.add_controller(a);
 
         win.child = hbox;
         win.present();
@@ -41,4 +54,34 @@ public class TestIT: Gtk.Application {
     public static int main(string[] args) {
         return new TestIT().run(args);
     }
+}
+
+public static void decvol() {
+   var com = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-";
+   try {
+      string a;
+      GLib.Process.spawn_command_line_sync(com, out a);
+   } catch (SpawnError e) {
+      
+   }
+}
+
+public static void incVol() {
+   var com = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+";
+   try {
+      string a;
+      GLib.Process.spawn_command_line_sync(com, out a);
+   } catch (SpawnError e) {
+      
+   }
+}
+
+public static void muteIT() {
+   var com = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+   try {
+      string a;
+      GLib.Process.spawn_command_line_sync(com, out a);
+   } catch (SpawnError e) {
+      
+   }
 }
