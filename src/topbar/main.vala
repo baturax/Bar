@@ -53,7 +53,7 @@ class MyBar_Top : Gtk.Application {
       l_box.append(workspaces.ws5(top_window));
       l_box.append(workspaces.ws6(top_window));
       //  Opened App
-      l_box.append(what_app_is_open());
+      l_box.append(WhatAppIsOpen.what_app_is_open());
       l_box.append(WhatAppIcon.what_app_icon());
 
       //  Shortcuts
