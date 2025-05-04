@@ -33,4 +33,9 @@ public const string BROWSER_ICON_NAME      = "applications-internet";
 
 //  Volume
 public const string GET_VOLUME = "sh -c \"wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print \\$2, $3}'\"";
+public const string VOLUME_APP = "pavucontrol";
+public const string INCREASE_VOLUME  = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+";
+public const string DECREASE_VOLUME = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-";
+public const string TOGGLE_MUTE_VOLUME = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+
 }
