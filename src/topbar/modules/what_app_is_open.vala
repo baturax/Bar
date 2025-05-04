@@ -6,6 +6,8 @@ class WhatAppIsOpen {
    {
       var app_label = new Gtk.Label("");
 
+      app_label.set_has_tooltip(true);
+
       app_label.set_valign(Gtk.Align.CENTER);
       GLib.Timeout.add_seconds(2, () => {
          string output_;
