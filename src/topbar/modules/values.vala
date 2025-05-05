@@ -53,10 +53,11 @@ public const string WS4 = "4";
 public const string WS5 = "5";
 public const string WS6 = "6";
 
-
-
-
-
 //  Music
 public const string MUSIC_COMMAND = """playerctl metadata --format "{{ artist }} - {{ title }}"""";
+public const string TOGGLE_MUSIC = "playerctl play-pause";
+public const string NEXT_MUSIC = "playerctl next";
+public const string PREV_MUSIC = "playerctl previous";
+
 }
+
