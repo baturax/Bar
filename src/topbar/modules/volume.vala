@@ -32,9 +32,9 @@ class GetVolume {
       });
 
       scroll.scroll.connect((dx, dy) => {
-         if (dy > 0) {
+         if (dy < 0) {
             VolumeControls.increase_volume();
-         } else if (dy < 0) {
+         } else if (dy > 0) {
             VolumeControls.decrease_volume();
          }
          return true;
