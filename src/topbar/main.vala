@@ -63,6 +63,7 @@ class MyBar_Top : Gtk.Application {
 
       //  Center Box
       c_box.set_valign(Gtk.Align.CENTER);
+      c_box.append(playing_music());
       c_box.append(shortcuts_box);
 
       //  Right Box

@@ -45,4 +45,18 @@ public const string WS3_LABEL = "R";
 public const string WS4_LABEL = "I";
 public const string WS5_LABEL = "W";
 public const string WS6_LABEL = "M";
+
+public const string WS1 = "1";
+public const string WS2 = "2";
+public const string WS3 = "3";
+public const string WS4 = "4";
+public const string WS5 = "5";
+public const string WS6 = "6";
+
+
+
+
+
+//  Music
+public const string MUSIC_COMMAND = """playerctl metadata --format "{{ artist }} - {{ title }}"""";
 }
