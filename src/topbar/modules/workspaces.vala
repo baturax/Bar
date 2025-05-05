@@ -4,32 +4,32 @@ using GLib;
 class workspaces {
    public static Gtk.Button ws1(Gtk.ApplicationWindow top_window)
    {
-      return(ws_buttons(top_window, "1"));
+      return(ws_buttons(top_window, Values.WS1_LABEL));
    }
 
    public static Gtk.Button ws2(Gtk.ApplicationWindow top_window)
    {
-      return(ws_buttons(top_window, "2"));
+      return(ws_buttons(top_window, Values.WS2_LABEL));
    }
 
    public static Gtk.Button ws3(Gtk.ApplicationWindow top_window)
    {
-      return(ws_buttons(top_window, "3"));
+      return(ws_buttons(top_window, Values.WS3_LABEL));
    }
 
    public static Gtk.Button ws4(Gtk.ApplicationWindow top_window)
    {
-      return(ws_buttons(top_window, "4"));
+      return(ws_buttons(top_window, Values.WS4_LABEL));
    }
 
    public static Gtk.Button ws5(Gtk.ApplicationWindow top_window)
    {
-      return(ws_buttons(top_window, "5"));
+      return(ws_buttons(top_window, Values.WS5_LABEL));
    }
 
    public static Gtk.Button ws6(Gtk.ApplicationWindow top_window)
    {
-      return(ws_buttons(top_window, "6"));
+      return(ws_buttons(top_window, Values.WS6_LABEL));
    }
 
    private static Gtk.Button ws_buttons(Gtk.Window top_window, string b_name)

@@ -38,4 +38,11 @@ public const string INCREASE_VOLUME  = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.
 public const string DECREASE_VOLUME = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-";
 public const string TOGGLE_MUTE_VOLUME = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
 
+//  Workspaces
+public const string WS1_LABEL = "N";
+public const string WS2_LABEL = "I";
+public const string WS3_LABEL = "R";
+public const string WS4_LABEL = "I";
+public const string WS5_LABEL = "W";
+public const string WS6_LABEL = "M";
 }
