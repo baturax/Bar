@@ -2,14 +2,16 @@ using Gtk;
 using GtkLayerShell;
 using GLib;
 
-public static Label playing_music() {
+public static Label playing_music()
+{
    var music_label = new Gtk.Label("");
+
    music_label.set_valign(Gtk.Align.CENTER);
 
-   var left_click = new Gtk.GestureClick();
-   var right_click = new Gtk.GestureClick();
+   var left_click   = new Gtk.GestureClick();
+   var right_click  = new Gtk.GestureClick();
    var middle_click = new Gtk.GestureClick();
-   var scroll = new Gtk.EventControllerScroll(Gtk.EventControllerScrollFlags.VERTICAL);
+   var scroll       = new Gtk.EventControllerScroll(Gtk.EventControllerScrollFlags.VERTICAL);
 
    left_click.set_button(Gdk.BUTTON_PRIMARY);
    right_click.set_button(Gdk.BUTTON_SECONDARY);
@@ -20,20 +22,21 @@ public static Label playing_music() {
    });
 
    right_click.pressed.connect(() => {
-      
    });
 
    middle_click.pressed.connect(() => {
-      
    });
 
    scroll.scroll.connect((dx, dy) => {
-      if (dy < 0) {
+      if (dy < 0)
+      {
          MusicControls.next_music();
-      } else if (dy > 0) {
+      }
+      else if (dy > 0)
+      {
          MusicControls.previous_music();
       }
-      return true;
+      return(true);
    });
 
    music_label.add_controller(left_click);
@@ -50,52 +53,49 @@ public static Label playing_music() {
       } catch (SpawnError e) {
          stdout.printf(e.message);
       }
-      return true;
-      });
-      return music_label;
+      return(true);
+   });
+   return(music_label);
 }
 
-
 internal class MusicControls {
-   public static void stop_toggle() {
+   public static void stop_toggle()
+   {
       try {
          GLib.Process.spawn_command_line_async(Values.TOGGLE_MUSIC);
-      } catch(SpawnError e) {
-
+      } catch (SpawnError e) {
       }
    }
 
-   public static void next_music() {
+   public static void next_music()
+   {
       try {
          GLib.Process.spawn_command_line_async(Values.NEXT_MUSIC);
-      } catch(SpawnError e) {
-
+      } catch (SpawnError e) {
       }
    }
 
-   public static void previous_music() {
+   public static void previous_music()
+   {
       try {
          GLib.Process.spawn_command_line_async(Values.PREV_MUSIC);
-      } catch(SpawnError e) {
-
+      } catch (SpawnError e) {
       }
    }
 
    //public static void right_click () {
-      //try {
-         //GLib.Process.spawn_command_line_sync("");
-      //} catch(SpawnError e) {
+   //try {
+   //GLib.Process.spawn_command_line_sync("");
+   //} catch(SpawnError e) {
 
-      //}
+   //}
    ///}
 
    //public static void middle_click () {
-      //try {
-         //GLib.Process.spawn_command_line_sync("");
-      //} catch(SpawnError e) {
+   //try {
+   //GLib.Process.spawn_command_line_sync("");
+   //} catch(SpawnError e) {
 
-      //}
+   //}
    ///}
-
-
 }
