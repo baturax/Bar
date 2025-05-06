@@ -13,6 +13,7 @@ namespace Value {
    }
    class Time {
       public const string CLOCK_FORMAT = "%H.%M";
+      public const string CLOCK_TOOLTIP_FORMAT = "%A, %B %d, %Y (%H.%M)";
       public const string CLOCK_IMAGE = "󰥔 ";
    }
 }
