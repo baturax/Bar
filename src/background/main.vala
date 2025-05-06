@@ -11,7 +11,6 @@ public class Bar_bg : Gtk.Application {
    {
       var window = new Gtk.ApplicationWindow(this)
       {
-         title          = "",
          default_height = 1080,
          default_width  = 1920,
       };
