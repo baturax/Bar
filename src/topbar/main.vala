@@ -13,7 +13,6 @@ class MyBar_Top : Gtk.Application {
       //  Main App
       var top_window = new Gtk.ApplicationWindow(this)
       {
-         title          = "",
          default_height = Value.Main.HEIGHT,
          default_width  = Value.Main.WIDTH,
       };
