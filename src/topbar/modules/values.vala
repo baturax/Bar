@@ -16,11 +16,13 @@ namespace Value {
       public const string CLOCK_TOOLTIP_FORMAT = "%A, %B %d, %Y (%H.%M)";
       public const string CLOCK_IMAGE = "󰥔 ";
    }
+   class Battery {
+      public const string BATTERY_CAPACITY_FILE = "/sys/class/power_supply/BAT0/capacity";
+      public const string BATTERY_STATUS_FILE   = "/sys/class/power_supply/BAT0/status";
+   }
 }
 
 namespace Values {
-
-// show_time.vala
 
 //  to_workspace.vala
 public const string WORKSPACE_CHANGE_HYPRLAND = "hyprctl dispatch workspace ";

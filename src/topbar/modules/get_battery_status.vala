@@ -11,7 +11,7 @@ class GetBatteryStatus {
       GLib.Timeout.add_seconds(2, () => {
          string output_;
          try {
-            FileUtils.get_contents(Values.BATTERY_STATUS_FILE, out output_);
+            FileUtils.get_contents(Value.Battery.BATTERY_STATUS_FILE, out output_);
             output_ = output_.strip();
 
             string icon = output_.contains("Not Charging") ? "󱟞" :

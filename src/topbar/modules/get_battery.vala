@@ -18,7 +18,7 @@ class GetBattery {
          string output;
 
          try {
-            if (FileUtils.get_contents(Values.BATTERY_CAPACITY_FILE, out output))
+            if (FileUtils.get_contents(Value.Battery.BATTERY_CAPACITY_FILE, out output))
             {
                output        = output.strip();
                uint capacity = uint.parse(output);
