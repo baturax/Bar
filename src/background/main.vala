@@ -30,8 +30,6 @@ public class Bar_bg : Gtk.Application {
 
    public static int main(string[] args)
    {
-      var app = new Bar_bg();
-
-      return(app.run(args));
+      return(new Bar_bg().run(args));
    }
 }
