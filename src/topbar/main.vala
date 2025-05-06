@@ -5,7 +5,7 @@ using GLib;
 class MyBar_Top : Gtk.Application {
    public MyBar_Top()
    {
-      Object(application_id: Values.APP_ID);
+      Object(application_id: Value.Main.APP_ID);
    }
 
    protected override void activate()
@@ -14,8 +14,8 @@ class MyBar_Top : Gtk.Application {
       var top_window = new Gtk.ApplicationWindow(this)
       {
          title          = "",
-         default_height = -1,
-         default_width  = 1920,
+         default_height = Value.Main.HEIGHT,
+         default_width  = Value.Main.WIDTH,
       };
 
       //  Shell
@@ -34,8 +34,8 @@ class MyBar_Top : Gtk.Application {
 
       //  Extra things
       var shortcuts_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 10);
-      var sep0          = new Gtk.Label("");
-      var sep1          = new Gtk.Label("");
+      var sep0          = new Gtk.Label(Value.Main.SEPERATOR);
+      var sep1          = new Gtk.Label(Value.Main.SEPERATOR);
 
       //  Expanders
       var spacer_left = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);

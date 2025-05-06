@@ -1,3 +1,12 @@
+namespace Value {
+   class Main {
+      public const string APP_ID = "bai.bai.Bar.Top";       // App ID
+      public const int WIDTH = 1920;            // Width of monitor
+      public const int HEIGHT = -1;             // use -1 for default
+      public const string SEPERATOR = "";
+   }
+}
+
 namespace Values {
 // main.vala
 public const string APP_ID = "bai.bai.Bar.Top";
