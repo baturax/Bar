@@ -12,7 +12,7 @@ class WhatAppIsOpen {
       GLib.Timeout.add_seconds(2, () => {
          string output_;
          try {
-            GLib.Process.spawn_command_line_sync(Values.GET_OPEN_APP, out output_, null, null);
+            GLib.Process.spawn_command_line_sync(Value.WhatAppIsOpen.GET_OPEN_APP, out output_, null, null);
             output_ = output_.strip().replace("\"", "").replace("'", "");
             app_label.set_text(" " + output_.strip());
          } catch (SpawnError e) {

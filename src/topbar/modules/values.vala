@@ -43,15 +43,15 @@ namespace Value {
       public const string WS5 = "5";
       public const string WS6 = "6";
    }
+   class WhatAppIsOpen {
+      public const string GET_OPEN_APP_OF_HYPRLAND = "/bin/sh -c 'hyprctl activewindow | grep class: | sed \"s/class: //\"'";
+      public const string GET_OPEN_APP_OF_NIRI     = "/bin/sh -c \"niri msg focused-window | awk 'NR==3 {print $3}'\"";
+      public const string GET_OPEN_APP             = GET_OPEN_APP_OF_NIRI;
+   }
 }
 
 namespace Values {
 //  what_app_is_open.vala
-public const string GET_OPEN_APP_OF_HYPRLAND = "/bin/sh -c 'hyprctl activewindow | grep class: | sed \"s/class: //\"'";
-public const string GET_OPEN_APP_OF_NIRI     = "/bin/sh -c \"niri msg focused-window | awk 'NR==3 {print $3}'\"";
-public const string GET_OPEN_APP             = GET_OPEN_APP_OF_NIRI;
-
-//  Shorcuts
 public const string FILE_MANAGER           = "nautilus";
 public const string TERMINAL               = "kitty";
 public const string BROWSER                = "firefox";
