@@ -47,7 +47,7 @@ public static Label playing_music()
    GLib.Timeout.add_seconds(2, () => {
       try {
          string output;
-         GLib.Process.spawn_command_line_sync(Values.MUSIC_COMMAND, out output);
+         GLib.Process.spawn_command_line_sync(Value.Music.MUSIC_COMMAND, out output);
          output = output.strip();
          music_label.set_label(output);
       } catch (SpawnError e) {
@@ -62,7 +62,7 @@ internal class MusicControls {
    public static void stop_toggle()
    {
       try {
-         GLib.Process.spawn_command_line_async(Values.TOGGLE_MUSIC);
+         GLib.Process.spawn_command_line_async(Value.Music.TOGGLE_MUSIC);
       } catch (SpawnError e) {
       }
    }
@@ -70,7 +70,7 @@ internal class MusicControls {
    public static void next_music()
    {
       try {
-         GLib.Process.spawn_command_line_async(Values.NEXT_MUSIC);
+         GLib.Process.spawn_command_line_async(Value.Music.NEXT_MUSIC);
       } catch (SpawnError e) {
       }
    }
@@ -78,7 +78,7 @@ internal class MusicControls {
    public static void previous_music()
    {
       try {
-         GLib.Process.spawn_command_line_async(Values.PREV_MUSIC);
+         GLib.Process.spawn_command_line_async(Value.Music.PREV_MUSIC);
       } catch (SpawnError e) {
       }
    }

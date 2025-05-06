@@ -5,11 +5,15 @@ namespace Value {
       public const int HEIGHT = -1;             // use -1 for default
       public const string SEPERATOR = "";
    }
+   class Music {
+      public const string MUSIC_COMMAND = """playerctl metadata --format "{{ artist }} - {{ title }}"""";
+      public const string TOGGLE_MUSIC = "playerctl play-pause";
+      public const string NEXT_MUSIC = "playerctl next";
+      public const string PREV_MUSIC = "playerctl previous";
+   }
 }
 
 namespace Values {
-// main.vala
-public const string APP_ID = "bai.bai.Bar.Top";
 
 // show_time.vala
 public const string CLOCK_FORMAT = "%H.%M";
@@ -61,12 +65,6 @@ public const string WS3 = "3";
 public const string WS4 = "4";
 public const string WS5 = "5";
 public const string WS6 = "6";
-
-//  Music
-public const string MUSIC_COMMAND = """playerctl metadata --format "{{ artist }} - {{ title }}"""";
-public const string TOGGLE_MUSIC = "playerctl play-pause";
-public const string NEXT_MUSIC = "playerctl next";
-public const string PREV_MUSIC = "playerctl previous";
 
 }
 
