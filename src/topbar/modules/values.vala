@@ -20,19 +20,32 @@ namespace Value {
       public const string BATTERY_CAPACITY_FILE = "/sys/class/power_supply/BAT0/capacity";
       public const string BATTERY_STATUS_FILE   = "/sys/class/power_supply/BAT0/status";
    }
+   class Workspaces {
+      public const string WORKSPACE_CHANGE_HYPRLAND = "hyprctl dispatch workspace ";
+      public const string WORKSPACE_CHANGE_NIRI     = "niri msg action focus-workspace ";
+      public const string WORKSPACE_CHANGE          = WORKSPACE_CHANGE_NIRI;
+      public const string WORKSPACE_CHANGE_NOTIFICATION_HYPRLAND = "hyprctl notify 5 5000 0 Switched to Workspace ";
+      public const string WORKSPACE_CHANGE_NOTIFICATION_GLOBAL   = "notify-send -a 'System' -u 'low' -t 2000 -e 'Switched to Workspace ' ";
+      public const string WORKSPACE_CHANGE_NOTIFICATION          = WORKSPACE_CHANGE_NOTIFICATION_GLOBAL;
+      public const string NOTIFICATION_ERROR = "Did You forget to fix here?";
+
+      public const string WS1_LABEL = "N";
+      public const string WS2_LABEL = "I";
+      public const string WS3_LABEL = "R";
+      public const string WS4_LABEL = "I";
+      public const string WS5_LABEL = "W";
+      public const string WS6_LABEL = "M";
+
+      public const string WS1 = "1";
+      public const string WS2 = "2";
+      public const string WS3 = "3";
+      public const string WS4 = "4";
+      public const string WS5 = "5";
+      public const string WS6 = "6";
+   }
 }
 
 namespace Values {
-
-//  to_workspace.vala
-public const string WORKSPACE_CHANGE_HYPRLAND = "hyprctl dispatch workspace ";
-public const string WORKSPACE_CHANGE_NIRI     = "niri msg action focus-workspace ";
-public const string WORKSPACE_CHANGE          = WORKSPACE_CHANGE_NIRI;
-public const string WORKSPACE_CHANGE_NOTIFICATION_HYPRLAND = "hyprctl notify 5 5000 0 Switched to Workspace ";
-public const string WORKSPACE_CHANGE_NOTIFICATION_GLOBAL   = "notify-send -a 'System' -u 'low' -t 2000 -e 'Switched to Workspace ' ";
-public const string WORKSPACE_CHANGE_NOTIFICATION          = WORKSPACE_CHANGE_NOTIFICATION_GLOBAL;
-public const string NOTIFICATION_ERROR = "Did You forget to fix here?";
-
 //  what_app_is_open.vala
 public const string GET_OPEN_APP_OF_HYPRLAND = "/bin/sh -c 'hyprctl activewindow | grep class: | sed \"s/class: //\"'";
 public const string GET_OPEN_APP_OF_NIRI     = "/bin/sh -c \"niri msg focused-window | awk 'NR==3 {print $3}'\"";
@@ -52,21 +65,5 @@ public const string VOLUME_APP = "pavucontrol";
 public const string INCREASE_VOLUME  = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+";
 public const string DECREASE_VOLUME = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-";
 public const string TOGGLE_MUTE_VOLUME = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-
-//  Workspaces
-public const string WS1_LABEL = "N";
-public const string WS2_LABEL = "I";
-public const string WS3_LABEL = "R";
-public const string WS4_LABEL = "I";
-public const string WS5_LABEL = "W";
-public const string WS6_LABEL = "M";
-
-public const string WS1 = "1";
-public const string WS2 = "2";
-public const string WS3 = "3";
-public const string WS4 = "4";
-public const string WS5 = "5";
-public const string WS6 = "6";
-
 }
 

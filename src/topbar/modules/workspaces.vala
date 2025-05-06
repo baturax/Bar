@@ -4,36 +4,33 @@ using GLib;
 class workspaces {
    public static Gtk.Button ws1(Gtk.ApplicationWindow top_window)
    {
-      return(WorkspaceThing.ws_buttons(top_window, Values.WS1_LABEL, Values.WS1));
+      return(WorkspaceThing.ws_buttons(top_window, Value.Workspaces.WS1_LABEL, Value.Workspaces.WS1));
    }
 
    public static Gtk.Button ws2(Gtk.ApplicationWindow top_window)
    {
-      return(WorkspaceThing.ws_buttons(top_window, Values.WS2_LABEL, Values.WS2));
+      return(WorkspaceThing.ws_buttons(top_window, Value.Workspaces.WS2_LABEL, Value.Workspaces.WS2));
    }
 
    public static Gtk.Button ws3(Gtk.ApplicationWindow top_window)
    {
-      return(WorkspaceThing.ws_buttons(top_window, Values.WS3_LABEL, Values.WS3));
+      return(WorkspaceThing.ws_buttons(top_window, Value.Workspaces.WS3_LABEL, Value.Workspaces.WS3));
    }
 
    public static Gtk.Button ws4(Gtk.ApplicationWindow top_window)
    {
-      return(WorkspaceThing.ws_buttons(top_window, Values.WS4_LABEL, Values.WS4));
+      return(WorkspaceThing.ws_buttons(top_window, Value.Workspaces.WS4_LABEL, Value.Workspaces.WS4));
    }
 
    public static Gtk.Button ws5(Gtk.ApplicationWindow top_window)
    {
-      return(WorkspaceThing.ws_buttons(top_window, Values.WS5_LABEL, Values.WS5));
+      return(WorkspaceThing.ws_buttons(top_window, Value.Workspaces.WS5_LABEL, Value.Workspaces.WS5));
    }
 
    public static Gtk.Button ws6(Gtk.ApplicationWindow top_window)
    {
-      return(WorkspaceThing.ws_buttons(top_window, Values.WS6_LABEL, Values.WS6));
+      return(WorkspaceThing.ws_buttons(top_window, Value.Workspaces.WS6_LABEL, Value.Workspaces.WS6));
    }
-
-   
-
 }
 
 internal class WorkspaceThing {
@@ -50,10 +47,10 @@ internal class WorkspaceThing {
       private static void to_workspace(string ws_number, Gtk.Window ?parent)
    {
       try {
-         GLib.Process.spawn_command_line_async(Values.WORKSPACE_CHANGE + ws_number);
-         GLib.Process.spawn_command_line_async(Values.WORKSPACE_CHANGE_NOTIFICATION.strip() + ws_number);
+         GLib.Process.spawn_command_line_async(Value.Workspaces.WORKSPACE_CHANGE + ws_number);
+         GLib.Process.spawn_command_line_async(Value.Workspaces.WORKSPACE_CHANGE_NOTIFICATION.strip() + ws_number);
       } catch (SpawnError e) {
-         var dialog = new Gtk.AlertDialog(Values.NOTIFICATION_ERROR);
+         var dialog = new Gtk.AlertDialog(Value.Workspaces.NOTIFICATION_ERROR);
          dialog.show(parent);
       }
    }
