@@ -11,12 +11,15 @@ namespace Value {
       public const string NEXT_MUSIC = "playerctl next";
       public const string PREV_MUSIC = "playerctl previous";
    }
+   class Time {
+      public const string CLOCK_FORMAT = "%H.%M";
+      public const string CLOCK_IMAGE = "󰥔 ";
+   }
 }
 
 namespace Values {
 
 // show_time.vala
-public const string CLOCK_FORMAT = "%H.%M";
 
 //  to_workspace.vala
 public const string WORKSPACE_CHANGE_HYPRLAND = "hyprctl dispatch workspace ";
