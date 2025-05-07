@@ -21,8 +21,11 @@ public class Bar_bg : Gtk.Application {
 
       var bg_picture = new Gtk.Picture.for_filename(Values.BG_IMAGE);
 
+      var bg= new Gtk.Box(Gtk.Orientation.HORIZONTAL, 1);
+
       var overlay = new Gtk.Overlay();
       overlay.set_child(bg_picture);
+      overlay.add_overlay(getLyric(getArtist(), getTitle()));
 
       window.child = overlay;
       window.present();
