@@ -1,6 +1,6 @@
 #### preview
 
-https://github.com/user-attachments/assets/63aa2271-9688-48bc-9de0-09a5614d2d0f
+https://github.com/user-attachments/assets/f37c779d-3063-4afe-995b-fa9f020ad4cb
 
 ```sh
 meson setup builddir
