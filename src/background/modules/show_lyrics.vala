@@ -4,6 +4,20 @@ using Soup;
 using Json;
 using Gtk;
 
+
+Label OffLyrics() {
+   var lab = new Gtk.Label("");
+   
+   getLyric(lab);
+
+   GLib.Timeout.add_seconds(10, () => {
+      getLyric(lab);
+      return true;
+   });
+
+   return lab;
+}
+
 string getArtist() {
    var command = "playerctl metadata --format '{{ artist }}'";
    string output;
@@ -24,9 +38,10 @@ string getTitle() {
    return output;
 }
 
-Label getLyric(string artist, string title) {
+Label getLyric(Label lab) {
+   var artist = getArtist();
+   var title = getTitle();
    string url = "https://lrclib.net/api/get?artist_name=%s&track_name=%s".printf(artist, title);
-   var lab = new Gtk.Label("");
    lab.set_wrap_mode(Pango.WrapMode.WORD_CHAR);
    lab.set_xalign(1);
 
