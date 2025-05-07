@@ -5,7 +5,7 @@ https://github.com/user-attachments/assets/63aa2271-9688-48bc-9de0-09a5614d2d0f
 ```sh
 meson setup builddir
 cd builddir
-meson compile
+ninja
 ```
 
 Binary will be inside builddir
