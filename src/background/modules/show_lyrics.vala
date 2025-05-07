@@ -42,8 +42,8 @@ Label getLyric(Label lab) {
    var artist = getArtist();
    var title = getTitle();
    string url = "https://lrclib.net/api/get?artist_name=%s&track_name=%s".printf(artist, title);
-   lab.set_wrap_mode(Pango.WrapMode.WORD_CHAR);
    lab.set_xalign(1);
+   lab.margin_end = 30;
 
    var session = new Soup.Session();
    var message = new Soup.Message("GET", url);
