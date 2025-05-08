@@ -8,6 +8,8 @@ cd builddir
 ninja
 ```
 
+for a while i wont add anything since this is what i needed
+
 Binary will be inside builddir
 
 ## Features
