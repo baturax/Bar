@@ -26,7 +26,7 @@ Gtk.Label get_things(Gtk.Label lab) {
       double apparent_temperature_api = current.get_double_member("apparent_temperature");
 
 
-      string apparent_temperature = apparent_temperature_api.to_string();
+      string apparent_temperature = "%.1f".printf(apparent_temperature_api);
 
       string is_day = "";
       if (is_day_api == 1.0) {
