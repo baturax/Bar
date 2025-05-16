@@ -1,113 +1,50 @@
 using Gtk;
-using GLib;
 
+class Volume {
 
-class GetVolume {
-   public static Label get_volume()
-   {
-      var volume_label = new Gtk.Label("");
+   public static Gtk.Label show_wolume() {
+      
+      Gtk.Label label = new Gtk.Label("");
 
-      volume_label.set_valign(Gtk.Align.CENTER);
+      getVolume(label);
 
-      var left_click = new Gtk.GestureClick();
-      var right_click = new Gtk.GestureClick();
-      var middle_click = new Gtk.GestureClick();
-      var scroll = new Gtk.EventControllerScroll(Gtk.EventControllerScrollFlags.VERTICAL);
-
-      left_click.set_button(Gdk.BUTTON_PRIMARY);
-      right_click.set_button(Gdk.BUTTON_SECONDARY);
-      middle_click.set_button(Gdk.BUTTON_MIDDLE);
-
-
-      left_click.pressed.connect((n_press, x, y) => {
-         VolumeControls.toggle_mute_volume();
-      });
-
-      right_click.pressed.connect((n_press, x, y) => {
-         VolumeControls.volume_app();
-      });
-
-      middle_click.pressed.connect((n_press, x, y) => {
-         //TODO
-      });
-
-      scroll.scroll.connect((dx, dy) => {
-         if (dy < 0) {
-            VolumeControls.increase_volume();
-         } else if (dy > 0) {
-            VolumeControls.decrease_volume();
-         }
+      GLib.Timeout.add(200, () => {
+         getVolume(label);
          return true;
       });
+      Controls.allGestures(1, Values.Volume.TOGGLE_MUTE_VOLUME, label);
+      Controls.allGestures(3, Values.Volume.VOLUME_APP, label);
+      Controls.allScrolls(label, Values.Volume.INCREASE_VOLUME, Values.Volume.DECREASE_VOLUME);
 
-      volume_label.add_controller(left_click);
-      volume_label.add_controller(right_click);
-      volume_label.add_controller(middle_click);
-      volume_label.add_controller(scroll);
+      return label;
 
-      GLib.Timeout.add_seconds(2, () => {
-         try {
-            string output_;
-            GLib.Process.spawn_command_line_sync(Values.GET_VOLUME, out output_);
-            output_ = output_.strip();
-            var output_as_double = double.parse(output_);
-
-
-            if (output_as_double >= 0.76)
-            {
-               volume_label.set_label("󰕾 " + output_);
-            }
-            else if (output_as_double >= 0.45 && output_as_double <= 0.75)
-            {
-               volume_label.set_label("󰖀 " + output_);
-            }
-            else if (output_as_double >= 0.1 && output_as_double <= 0.44)
-            {
-               volume_label.set_label("󰕿 " + output_);
-            }
-            else if (output_as_double == 0.0)
-            {
-               volume_label.set_label("󰝟 " + output_);
-            }
-         } catch (SpawnError e) {
-            volume_label.set_label("Couldnt get sorry");
-         }
-         return(true);
-      });
-      return(volume_label);
-   }
-}
-
-internal class VolumeControls {
-   public static void volume_app()
-   {
-      try {
-         GLib.Process.spawn_command_line_async(Values.VOLUME_APP);
-      } catch (SpawnError e) {
-      }
    }
 
-   public static void increase_volume()
-   {
+   private static Gtk.Label getVolume(Gtk.Label label) {
+      
+      string[] volume_icons = {
+      "󰖁 ", "󰕿 ", "󰖀 ", "󰕾 "
+      };
+      string _output;
+      
       try {
-         GLib.Process.spawn_command_line_sync(Values.INCREASE_VOLUME);
-      } catch (SpawnError e) {
-      }
-   }
+         GLib.Process.spawn_command_line_sync(Values.Volume.GET_VOLUME, out _output);
+         _output = _output.strip();
+         double _output_double = double.parse(_output);
 
-   public static void decrease_volume()
-   {
-      try {
-         GLib.Process.spawn_command_line_sync(Values.DECREASE_VOLUME);
-      } catch (SpawnError e) {
-      }
-   }
+         string icons =    _output.contains("MUTED")                        ? volume_icons[0]:
+                           _output_double == 0.0                            ? volume_icons[0]:
+                           _output_double >= 0.71                           ? volume_icons[3]:
+                           _output_double >= 0.36 || _output_double <= 0.70 ? volume_icons[2]:
+                           _output_double >= 0.1  || _output_double <= 0.35 ? volume_icons[1]: "Error";
 
-   public static void toggle_mute_volume()
-   {
-      try {
-         GLib.Process.spawn_command_line_sync(Values.TOGGLE_MUTE_VOLUME);
-      } catch (SpawnError e) {
+
+
+         label.set_label(icons+_output);
+      } catch (GLib.SpawnError e) {
+         Things.warning(e.message);
       }
+
+      return label;
    }
 }
