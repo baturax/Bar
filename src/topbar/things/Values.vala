@@ -59,4 +59,8 @@ namespace Values {
       public const string PREV_MUSIC = "playerctl previous";
    }
 
+   public class Css {
+      public const string CSS_FILE = "/home/bai/Projects/baturax/bai-bar/src/topbar/Bar.css";
+   }
+
 }
