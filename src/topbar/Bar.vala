@@ -32,7 +32,6 @@ public class Bar: Gtk.Application {
 
          // Center Box
       center_box.append(Music.show_music());
-      center_box.append(Things.module_seperator());
       center_box.append(Shortcuts.terminal());
       center_box.append(Shortcuts.file_manager());
       center_box.append(Shortcuts.browser());
