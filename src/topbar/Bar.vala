@@ -9,6 +9,7 @@ public class Bar: Gtk.Application {
       Gtk.ApplicationWindow window = new Gtk.ApplicationWindow(this);
       window.default_width = Values.Main.WIDTH;
       window.default_height = Values.Main.HEIGHT;
+      window.set_decorated(false);
 
       Things.Shell(window);
 
@@ -51,6 +52,7 @@ public class Bar: Gtk.Application {
       all_ws.append(right_box);
 
       window.set_child(all_ws);
+      Things.apply_css(Values.Css.CSS_FILE, all_ws, "Bar");
       window.present();
    }
 
