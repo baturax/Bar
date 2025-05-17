@@ -1,3 +1,3 @@
-project('vala app', 'vala', 'c')
+project('Bar', 'vala')
 
 subdir('./src/topbar/')
