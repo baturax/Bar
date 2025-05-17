@@ -7,7 +7,7 @@ class Battery {
 
       getBattery(label);
 
-      GLib.Timeout.add(60, () => {
+      GLib.Timeout.add_seconds(60, () => {
          getBattery(label);
          return true;
       });

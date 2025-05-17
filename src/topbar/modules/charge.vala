@@ -7,7 +7,7 @@ class Status {
       Gtk.Label label = new Gtk.Label("");
       getStatus(label);
 
-      GLib.Timeout.add(60, () => {
+      GLib.Timeout.add_seconds(60, () => {
          getStatus(label);
          return true;
       });
