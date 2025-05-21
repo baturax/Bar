@@ -25,6 +25,6 @@ source = files(
 executable(
   'baibar',
   source,
-  dependencies: dependencies
-
+  dependencies: dependencies,
+  install: true
 )
