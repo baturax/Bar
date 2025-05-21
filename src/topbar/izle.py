@@ -26,7 +26,7 @@ class ChangeHandler(FileSystemEventHandler):
             subprocess.run("ninja -C ../../buildDir/", shell=True, check=True)
             
             current_process = subprocess.Popen(
-                "./../../buildDir/src/wallpaper/baiwallpaper",
+                "./../../buildDir/src/topbar/baibar",
                 shell=True
             )
         except subprocess.CalledProcessError as e:
