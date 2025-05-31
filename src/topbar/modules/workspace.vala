@@ -58,7 +58,7 @@ internal class ws_things {
       try {
          GLib.Process.spawn_command_line_sync(Values.Workspaces.WS_COMMAND + which_workspace, out _output);
          
-         Things.notification("Bar", "Workspace changed", "Workspace changed to: " + which_workspace, "browser");
+         Things.notification("Bar", "Workspace changed", "Workspace changed to: " + which_workspace, "mail-forward");
 
       } catch (SpawnError e) {
          Things.warning("couldn't change workspace, error: " + e.message);
